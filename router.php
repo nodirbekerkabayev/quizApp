@@ -2,8 +2,6 @@
 
 use App\Router;
 
-
-
 if (Router::isApiCall()){
     require 'routes/api.php';
     exit();
