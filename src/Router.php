@@ -18,12 +18,12 @@ class Router {
             if ($resourceValue) {
                 $resourceRoute = str_replace('{id}', $resourceValue, $route);
                 if ($resourceRoute == self::getRoute()) {
-                    (new $callback[0])->{$callback[1]};
+                    (new $callback[0])->{$callback[1]}();
                     exit();
                 }
             }
             if ($route == self::getRoute()) {
-                (new $callback[0])->{$callback[1]};
+                (new $callback[0])->{$callback[1]}();
                 exit();
             }
         }
