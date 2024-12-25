@@ -9,4 +9,4 @@ use App\Models\User;
 
 $user = new User();
 
-dd($user->getConnection());
+dd($user->create('ali', 'ali@gmail.com', '123456789'));
