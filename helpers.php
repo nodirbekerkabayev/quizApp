@@ -15,9 +15,10 @@ function dumpDie($value)
     var_dump($value);
     exit();
 }
-#[NoReturn] function apiResponse($data)
+#[NoReturn] function apiResponse($data, $status = 200): void
 {
     header('Content-Type: application/json');
+    http_response_code($status);
     echo json_encode($data);
     exit();
 }
