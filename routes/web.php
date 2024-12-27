@@ -9,7 +9,7 @@ use App\Models\User;
 
 $user = new User();
 
-dd(
-    $user->create('dilshodbek erolov','erolov12315678@gmail.com','1234')
+var_dump(
+    $user->create('dilshodbekerolov','erolov1231567891115@gmail.com','1234')
 
 );
