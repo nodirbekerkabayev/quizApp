@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use App\Traits\HasApiTokens;
-use PDO;
+use Random\RandomException;
 
 class User extends DB
 {
     use HasApiTokens;
 
+    /**
+     * @throws RandomException
+     */
     public function create(string $full_name, string $email, string $password): bool
     {
         $query = "INSERT INTO users (full_name, email, password, updated_at, created_at) VALUES (:fullName, :email, :password, NOW(), NOW())";
