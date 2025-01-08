@@ -25,7 +25,11 @@ class User extends DB
         $this->createApiToken($userId);
         return true;
     }
-    public function getUser(string $email, string $password): bool
+
+    /**
+     * @throws RandomException
+     */
+    public function getUser(string $email, string $password): mixed
     {
         $query = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->conn->prepare($query);
@@ -33,11 +37,10 @@ class User extends DB
             ':email' => $email,
         ]);
         $user = $stmt->fetch();
-        if($user && password_verify($password, $user['password'])){
-            return true;
+        if($user && password_verify($password, $user->password)) {
+            $this->createApiToken($user->id);
+            return $user;
         }
-        else{
-            return false;
-        }
+        return null;
     }
 }

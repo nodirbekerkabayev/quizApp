@@ -4,16 +4,7 @@ use JetBrains\PhpStorm\NoReturn;
 function view(string $page, array $data = []): void
 {
     extract($data);
-    require 'views/' . $page . '.php';
-}
-function redirect(string $url){
-    header("Location: $url");
-    exit;
-}
-function dumpDie($value)
-{
-    var_dump($value);
-    exit();
+    require 'resources/views/' . $page . '.php';
 }
 #[NoReturn] function apiResponse($data, $status = 200): void
 {
