@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gradient-to-b from-gray-50 to-gray-100">
@@ -12,14 +12,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex items-center">
-                <h1 class="text-2xl font-bold text-indigo-600">Quiz App</h1>
+                <a href="#"><h1 class="text-2xl font-bold text-indigo-600">Quiz App</h1></a>
             </div>
             <div class="flex items-center space-x-4">
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
                     <a href="#how-it-works" class="text-gray-600 hover:text-gray-900">How It Works</a>
-                    <a href="login.html" class="text-gray-600 hover:text-gray-900">Login</a>
-                    <a href="add-quiz.php"
+                    <a href="/login" class="text-gray-600 hover:text-gray-900">Login</a>
+                    <a href="/register"
                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
                         Register
                     </a>
@@ -35,8 +35,8 @@
     <div class="hidden mobile-menu md:hidden pl-3">
         <a href="#features" class="block my-2 text-xl text-gray-600 hover:text-gray-900">Features</a>
         <a href="#how-it-works" class="block my-2 text-xl text-gray-600 hover:text-gray-900">How It Works</a>
-        <a href="login.html" class="block my-2 text-xl text-gray-600 hover:text-gray-900">Login</a>
-        <a href="add-quiz.php"
+        <a href="/login" class="block my-2 text-xl text-gray-600 hover:text-gray-900">Login</a>
+        <a href="/register"
            class="block my-2 text-xl inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
             Register
         </a>
@@ -74,6 +74,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Features Section -->
     <div id="features" class="py-12 bg-gray-50">
@@ -143,6 +144,7 @@
                     Start creating your quiz in three simple steps
                 </p>
             </div>
+
 
             <div class="mt-10">
                 <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
@@ -216,6 +218,7 @@
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>

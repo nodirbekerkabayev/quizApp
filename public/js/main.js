@@ -1,11 +1,22 @@
-function test(){
+async function login(){
+    let form = document.getElementById("form"),
+        formData = new FormData(form);
 
-    let errorMessage=document.getElementById("forText"),
-        email=document.getElementById("email"),
-        password=document.getElementById("password");
-
-    if (email.value==="" ||password.value===""){
-        errorMessage.innerHTML="email va passwordni to'ldir";
-        errorMessage.style.color="red";
-    }
+    fetch('http://localhost:8080/api/login', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(function (response){
+        if(response.ok){
+            return response.json();
+        }
+        return Promise.reject(response);
+    })
+    .then(function (data){
+        localStorage.setItem('token', data.token);
+        console.log(localStorage.getItem('token'));
+    })
+        .catch(function (error) {
+            console.error(error);
+        })
 }

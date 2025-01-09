@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Quiz App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gray-50">
@@ -19,7 +19,7 @@
                 </a>
             </p>
         </div>
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form id="form" class="mt-8 space-y-6" action="#" method="POST">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="email" class="sr-only">Email address</label>
@@ -40,12 +40,11 @@
                     <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
                         Forgot your password?
                     </a>
-                    <p id="forText"></p>
                 </div>
             </div>
 
             <div>
-                <button  type="submit" onclick="test()"
+                <button type="button" onclick="login()"
                         class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Sign in
                 </button>
@@ -53,7 +52,6 @@
         </form>
     </div>
 </div>
-
 <script src="js/main.js"></script>
 </body>
 </html>
