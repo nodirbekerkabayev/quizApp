@@ -84,4 +84,12 @@ class Router {
     public static function isTelegram(): bool{
         return mb_stripos($_SERVER['REQUEST_URI'], '/telegram') === 0;
     }
+
+    public static function notFound(string $route='api'): void
+    {
+        if (self::isApiCall()) {
+            apiResponse(['error'=>'NOT FOUND'], 404);
+        }
+        view('404');
+    }
 }
