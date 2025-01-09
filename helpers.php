@@ -1,10 +1,11 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 use JetBrains\PhpStorm\NoReturn;
 function view(string $page, array $data = []): void
 {
     extract($data);
-    require 'views/' . $page . '.php';
+    require 'resources/views/' . $page . '.php';
 }
 function redirect(string $url){
     header("Location: $url");

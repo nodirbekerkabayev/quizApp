@@ -1,22 +1,17 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-//use App\Router;
-//use controllers\UserController;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\Web\HomeController;
+use Source\Router;
 
-//Router::get('/', [UserController::class, 'index']);
+Router::get('/', [HomeController::class, 'home']);
+Router::get("/about", [HomeController::class, 'about']);
+Router::get("/register", [HomeController::class, 'register']);
+Router::get("/login", [HomeController::class, 'login']);
 
-use App\Models\User;
 
-$user = new User();
 
-var_dump(
-    $user->create('dilshodbekerolov','erolov1231567891115@gmail.com','1234')
-
-);
-
-//use Source\Router;
-//use App\controllers\API\UserController;
-//
-//Router::get('/todos', UserController::class . 'index');
 

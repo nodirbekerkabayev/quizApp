@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\QuizController;
 use Source\Router;
-use App\Controllers\API\UserController;
 
 Router::post('/api/users', [UserController::class , 'store']);
 Router::get('/api/users/{id}', [UserController::class , 'show']);

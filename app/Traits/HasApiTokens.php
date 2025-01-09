@@ -14,11 +14,7 @@ trait HasApiTokens
      */
     public function createApiToken(int $userId): string
     {
-<<<<<<< HEAD:src/Traits/HasApiTokens.php
         $query="INSERT INTO user_api_token (user_id, token,expires_at,created_at) VALUES (:userId, :token,:expiresAt,NOW())";
-=======
-        $query="INSERT INTO user_api_token (user_id, token,expires_at, created_at) VALUES (:userId, :token,:expiresAt, NOW())";
->>>>>>> nodirbek/main:app/Traits/HasApiTokens.php
         $this->api_tokens=bin2hex(random_bytes(40));
         $this->duration=date('Y-m-d H:i:s',strtotime('+' . $_ENV["API_TOKEN_EXPIRATION"] . ' day'));
         $stmt=$this->conn->prepare($query);
