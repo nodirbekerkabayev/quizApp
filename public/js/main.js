@@ -6,7 +6,7 @@ async function login(){
     await apiFetch('/login', {method: 'POST', body: formData})
         .then((data) => {
             localStorage.setItem('token', data.tokens)
-            window.location.href = '/';
+            window.location.href = '/dashboard';
         })
             .catch((error) => {
                 console.error(error.data.errors);
