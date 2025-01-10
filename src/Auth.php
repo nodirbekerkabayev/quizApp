@@ -26,7 +26,7 @@ class Auth
         $token = str_replace('Bearer ', '', $headers['Authorization']);
         $db = new DB();
         $pdo = $db->getConnection();
-        $query = "SELECT * FROM user_api_tokens WHERE token=:token ";
+        $query = "SELECT * FROM user_api_token WHERE token=:token ";
         $stmt = $pdo->prepare($query);
         $stmt->execute([
             ':token' => $token
