@@ -46,4 +46,14 @@ class UserController
             'message' => 'User not logged in successfully',
         ], 401);
     }
+
+    public function show()
+    {
+        apiResponse([
+            'user'=>[
+                'name'=>'John Doe',
+                'email'=>'john@doe.com',
+            ]
+        ]);
+    }
 }
