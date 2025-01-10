@@ -11,7 +11,7 @@ trait Validator
             if (array_key_exists($key, $_REQUEST) and !empty($_REQUEST[$key])) {
                 continue;
             }
-            $requiredKeys[$key] = $key . "is required";
+            $requiredKeys[$key] = $key . " is required";
         }
         if (!empty($requiredKeys)) {
             apiResponse(['errors'=>$requiredKeys], 400);
