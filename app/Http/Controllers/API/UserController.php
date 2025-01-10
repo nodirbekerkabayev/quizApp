@@ -36,14 +36,14 @@ class UserController
             'password' => 'string'
         ]);
         $user = new User();
-    if($user->getUser($userData['email'], $userData['password'])) {
-    apiResponse([
-        'message' => 'User logged in successfully',
-        'token' => $user->api_tokens
-    ]);
-    }
-    apiResponse([
-        'message' => 'User not logged in successfully',
-    ], 401);
+        if($user->getUser($userData['email'], $userData['password'])) {
+            apiResponse([
+                'message' => 'User logged in successfully',
+                'token' => $user->api_tokens
+            ]);
+        }
+        apiResponse([
+            'message' => 'User not logged in successfully',
+        ], 401);
     }
 }
