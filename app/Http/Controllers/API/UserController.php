@@ -29,6 +29,10 @@ class UserController
         ],
             201);
     }
+
+    /**
+     * @throws RandomException
+     */
     #[NoReturn] public function login(): void
     {
         $userData = $this->validate([
@@ -43,11 +47,13 @@ class UserController
             ]);
         }
         apiResponse([
-            'message' => 'User not logged in successfully',
+            'errors' => [
+                'error' => 'Invalid email or password'
+            ]
         ], 401);
     }
 
-    public function show()
+    #[NoReturn] public function show(): void
     {
         apiResponse([
             'user'=>[
