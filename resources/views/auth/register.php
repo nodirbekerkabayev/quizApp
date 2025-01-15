@@ -66,7 +66,7 @@
         const {default: apiFetch } = await import('./js/utils/apiFetch.js');
         await apiFetch('/register', {method: 'POST', body: formData})
             .then((data) => {
-                localStorage.setItem('token', data.tokens)
+                localStorage.setItem('token', data.token)
                 window.location.href = '/dashboard';
             })
             .catch((error) => {
