@@ -1,5 +1,5 @@
-<?php require '../resources/views/components/dashboard/header.php' ?>
-<body class="bg-gray-50">
+<?php components('dashboard/header'); ?>
+    <body class="bg-gray-50">
 <!-- Navigation -->
 <nav class="bg-white shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,4 +188,4 @@
         mobileMenu.classList.toggle('hidden');
     });
 </script>
-<?php require '../resources/views/components/dashboard/footer.php' ?>
+<?php components('dashboard/footer'); ?>

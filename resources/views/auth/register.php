@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Quiz App</title>
-    <link rel="stylesheet" href="css/output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-gray-50">
+<?php components('dashboard/header'); ?>
+<div class="bg-gray-50">
 <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
         <div>
@@ -55,7 +47,7 @@
                     <a href="#" class="text-indigo-600 hover:text-indigo-500">Terms and Conditions</a>
                 </label>
             </div>
-
+            <div id="error"></div>
             <div>
                 <button type="submit"
                         class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -86,5 +78,4 @@
             });
     }
 </script>
-</body>
-</html>
+<?php components('dashboard/footer'); ?>
