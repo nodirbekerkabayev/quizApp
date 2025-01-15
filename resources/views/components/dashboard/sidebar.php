@@ -5,7 +5,9 @@
             <i class="fas fa-close text-xl"></i>
         </button>
     </div>
-    <nav class="flex-grow p-4" id="sidebar"></nav>
+    <nav class="flex-grow p-4" id="sideBar">
+
+    </nav>
 </aside>
 <script>
     let sidebarItems = [
@@ -31,13 +33,11 @@
         }
     ];
 
-    let sidebar = document.getElementById('sidebar');
-    let htmlContent = '';
+    let sideBar = document.getElementById('sideBar');
     sidebarItems.forEach(item => {
         let isActive = window.location.pathname === item.uri ? 'bg-gray-100' : 'hover:bg-gray-100';
-        htmlContent += `<a href="${item.uri}" class="block p-3 mb-2 text-gray-800 ${isActive} rounded-lg">
+        sideBar.innerHTML += `<a href="${item.uri}" class="block p-3 mb-2 text-gray-800 ${isActive} rounded-lg">
             <i class="${item.icon}"></i> ${item.name}
         </a>`;
     });
-    sidebar.innerHTML = htmlContent;
 </script>
