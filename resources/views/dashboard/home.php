@@ -1,14 +1,6 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Quiz App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-gray-100">
+<?php require '../resources/views/components/dashboard/header.php' ?>
+<script src="js/dashboard/getUserInfo.js"></script>
+<div class="bg-gray-100">
 <div class="min-h-screen flex">
     <!-- Sidebar -->
     <aside class="bg-white w-64 min-h-screen flex flex-col shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in fixed md:static z-30" id="sidebar">
@@ -21,16 +13,16 @@
             </div>
         </div>
         <nav class="flex-grow p-4">
-            <a href="home.php" class="block p-3 mb-2 text-gray-800 bg-gray-100 rounded-lg">
+            <a href="/dashboard" class="block p-3 mb-2 text-gray-800 bg-gray-100 rounded-lg">
                 <i class="fas fa-home mr-2"></i> Dashboard
             </a>
-            <a href="my-quizzes.html" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+            <a href="dashboard/quizzes" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                 <i class="fas fa-book mr-2"></i> My Quizzes
             </a>
-            <a href="create-quiz.html" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+            <a href="/dashboard/create-quiz" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                 <i class="fas fa-plus mr-2"></i> Create Quiz
             </a>
-            <a href="statistics.html" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+            <a href="/dashboard/statistics" class="block p-3 mb-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                 <i class="fas fa-chart-bar mr-2"></i> Statistics
             </a>
         </nav>
@@ -48,7 +40,7 @@
 
                     <div class="flex items-center space-x-2">
                         <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full">
-                        <span class="text-gray-700 font-medium">John Doe</span>
+                        <span class="text-gray-700 font-medium" id="userName"></span>
                     </div>
                 </div>
             </div>
@@ -59,12 +51,12 @@
             <!-- Quick Actions -->
             <div class="mb-8">
                 <div class="flex flex-wrap gap-4">
-                    <a href="create-quiz.html" class="flex-1 min-w-[200px] bg-blue-600 text-white p-4 rounded-lg shadow hover:bg-blue-700 transition">
+                    <a href="/dashboard/create-quiz" class="flex-1 min-w-[200px] bg-blue-600 text-white p-4 rounded-lg shadow hover:bg-blue-700 transition">
                         <i class="fas fa-plus mb-2 text-2xl"></i>
                         <h3 class="font-semibold">Create New Quiz</h3>
                         <p class="text-sm opacity-90">Start creating a new quiz</p>
                     </a>
-                    <a href="statistics.html" class="flex-1 min-w-[200px] bg-green-600 text-white p-4 rounded-lg shadow hover:bg-green-700 transition">
+                    <a href="/dashboard/statistics" class="flex-1 min-w-[200px] bg-green-600 text-white p-4 rounded-lg shadow hover:bg-green-700 transition">
                         <i class="fas fa-chart-line mb-2 text-2xl"></i>
                         <h3 class="font-semibold">View Statistics</h3>
                         <p class="text-sm opacity-90">Check your progress</p>
@@ -147,5 +139,5 @@
         </main>
     </div>
 </div>
-</body>
+</div>
 </html>
