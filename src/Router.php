@@ -19,7 +19,7 @@ class Router {
                 $resourceRoute = str_replace('{id}', $resourceValue, $route);
                 if ($resourceRoute == self::getRoute()) {
                     self::middleware($middleware);
-                    (new $callback[0])->{$callback[1]}();
+                    (new $callback[0])->{$callback[1]}($resourceValue);
                     exit();
                 }
             }
@@ -76,10 +76,10 @@ class Router {
             }
         }
     }
-    public static function delete (string $route, callable|array $callback): void
+    public static function delete (string $route, callable|array $callback, ?string $middleware=null): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-            self::runCallback($route, $callback);
+            self::runCallback($route, $callback, $middleware);
         }
     }
     public static function isApiCall(): bool{
