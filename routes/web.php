@@ -13,8 +13,6 @@ Router::get('/dashboard/quizzes', [UserController::class, 'quizzes']);
 Router::get('/dashboard/create-quiz', [UserController::class, 'create_quiz']);
 Router::get('/dashboard/statistics', [UserController::class, 'statistics']);
 Router::get('/take-quiz', [UserController::class, 'takeQuiz']);
-
-//Router::post('/dashboard/create-quiz', [UserController::class, 'handlePost']);
-
+Router::get('/dashboard/quizzes/{id}/update', [UserController::class, 'update']);
 
 Router::notFound();

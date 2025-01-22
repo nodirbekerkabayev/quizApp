@@ -14,4 +14,6 @@ Router::post('/api/quizzes', [QuizController::class , 'store'], 'auth:api');
 
 Router::delete('/api/quizzes/{id}', [QuizController::class , 'destroy']);
 
+Router::put('/api/quizzes/{id}', [QuizController::class , 'update']);
+
 Router::notFound();
