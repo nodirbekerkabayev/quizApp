@@ -25,7 +25,7 @@ class QuizController
     #[NoReturn] public function show(int $quizId): void
     {
         $quiz = (new Quiz())->find($quizId);
-        apiResponse((new Question())->getWithOptions($quizId));
+        $questions = (new Question())->getWithOptions($quizId);
         $quiz->questions = $questions;
         apiResponse($quiz);
     }
