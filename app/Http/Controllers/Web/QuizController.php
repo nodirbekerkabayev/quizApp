@@ -9,11 +9,6 @@ class QuizController
 {
     #[NoReturn] public function takeQuiz(string $uniqueValue): void
     {
-        $quiz = (new Quiz())->findByUniqueValue($uniqueValue);
-        if (!$quiz) {
-            view('errors/404');
-        }
-        view('quiz/takeQuiz');
+        view('quiz/takeQuiz', ['uniqueValue' => $uniqueValue]);
     }
-
 }
