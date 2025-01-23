@@ -1,10 +1,11 @@
 <?php
 
 use JetBrains\PhpStorm\NoReturn;
-function view(string $page, array $data = []): void
+#[NoReturn] function view(string $page, array $data = []): void
 {
     extract($data);
     require 'resources/views/' . $page . '.php';
+    exit();
 }
 function components(string $page, array $data = []): void
 {

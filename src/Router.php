@@ -25,7 +25,7 @@ class Router {
             }
             if ($route == self::getRoute()) {
                 self::middleware($middleware);
-                (new $callback[0])->{$callback[1]}();
+                (new $callback[0])->{$callback[1]}($resourceValue);
                 exit();
             }
         }
@@ -97,7 +97,7 @@ class Router {
             apiResponse(['error'=>'NOT FOUND'], 404);
 
         }
-        view('404');
+        view('errors/404');
     }
 
     public static function middleware(?string $middleware = null): void
