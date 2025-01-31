@@ -1,5 +1,5 @@
 <?php
-components('main/header');
+components('/dashboard/header');
 //dd($uniqueValue);
 ?>
     <script src="/js/dashboard/getUserInfo.js"></script>
@@ -134,7 +134,7 @@ components('main/header');
                             <p class="text-gray-600">Final Score</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-3xl font-bold text-blue-600" id="time-taken">0:00</p>
+                            <p class="text-3xl font-bold text-blue-600" id="result-time-taken">0:00</p>
                             <p class="text-gray-600">Time Taken</p>
                         </div>
                     </div>
@@ -158,8 +158,10 @@ components('main/header');
 
         <!-- Quiz JavaScript -->
         <script>
-            let questions;
-            let quizData;
+            let questions,
+                quizData,
+                result;
+
             async function getQuizItems() {
                 const {default: apiFetch} = await import('/js/utils/apiFetch.js');
                 try {
@@ -233,19 +235,20 @@ components('main/header');
                         await apiFetch('/results', {method: 'POST', body: JSON.stringify({quiz_id: quizData.id})})
                             .then((data) => {
                                 console.log(data)
+                                result = data.result;
                             })
                             .catch((error) => {
-                                document.getElementById('error').innerHTML = '';
-                                Object.keys(error.data.errors).forEach(err => {
-                                    document.getElementById('error').innerHTML += `<p class="text-red-500 mt-1">${error.data.errors[err]}</p>`;
-                                })
+                                document.getElementById('result-time-taken').innerText = error.data.data.result.time_taken + ':00';
+                                document.getElementById('results-card').classList.remove('hidden');
+                                document.getElementById('questionContainer').classList.add('hidden');
                             });
                     }
+
                     startQuiz();
                     let startQuizContainer = document.getElementById('start-card');
                     startQuizContainer.classList.add('hidden');
                     document.getElementById('questionContainer').classList.remove('hidden');
-                    startTimer(quizData.time_limit*60, document.getElementById('timer')); // 20 minutes
+                    startTimer(quizData.time_limit * 60, document.getElementById('timer')); // 20 minutes
                 });
 
                 function startTimer(duration, display) {
@@ -294,6 +297,28 @@ components('main/header');
                     questions.splice(currentQuestionIndex, 1);
                     let question = questions[currentQuestionIndex],
                         questionContainer = document.getElementById('questionContainer');
+
+                    async function submitAnswer() {
+                        const {default: apiFetch} = await import("/js/utils/apiFetch.js");
+                        await apiFetch("/answers", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                result_id: result.id,
+                                option_id: formData.get('answer')
+                            })
+                        })
+                            .then(data => {
+                            })
+                            .catch((error) => {
+                                console.error(error.data.errors);
+                                document.getElementById("error").innerHTML = '';
+                                Object.keys(error.data.errors).forEach((err) => {
+                                    document.getElementById("error").innerHTML += `<p class="text-red-500 mt-1">${error.data.errors[err]}</p>`;
+                                });
+                            });
+                    }
+
+                    submitAnswer();
                     if (question) {
                         displayQuestion(question);
                     } else {
@@ -316,5 +341,5 @@ components('main/header');
             });
         </script>
 <?php
-components('main/footer');
+components('/dashboard/footer');
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\WEB;
 
 use App\Models\Quiz;
 use JetBrains\PhpStorm\NoReturn;
