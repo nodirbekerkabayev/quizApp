@@ -1,5 +1,5 @@
 <?php components('dashboard/header'); ?>
-    <script src="/js/dashboard/getUserInfo.js"></script>
+    <script src="<?php echo assets('/js/dashboard/getUserInfo.js')?>"></script>
     <div class="bg-gray-100">
         <div class="flex min-h-screen">
             <!-- Sidebar -->
@@ -72,7 +72,7 @@
     </div>
     <script>
         async function quizzes() {
-            const {default: apiFetch} = await import('/js/utils/apiFetch.js');
+            const {default: apiFetch} = await import('<?php echo assets('/js/utils/apiFetch.js')?>');
             const quizList = document.getElementById('quizList');
             await apiFetch('/quizzes', {method: 'GET'})
                 .then((data) => {
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="flex justify-between">
                                         <a href="/dashboard/quizzes/${quiz.id}/update" class="text-indigo-600 hover:text-indigo-800">Edit</a>
-                                        <button class="text-green-600 hover:text-green-800">View Results</button>
+                                        <button class="text-green-600 hover:text-green-800" onclick="copyContent('${quiz.uniqueValue}')">Share</button>
                                         <button class="text-red-600 hover:text-red-800" onclick="deleteQuiz(${quiz.id})">Delete</button>
                                     </div>
                         `
@@ -122,7 +122,7 @@
         async function deleteQuiz(id) {
             console.log(id);
             if (confirm('Are you sure you want to delete this quiz?')) {
-                const {default: apiFetch} = await import('/js/utils/apiFetch.js');
+                const {default: apiFetch} = await import('<?php echo assets('/js/utils/apiFetch.js')?>');
                 await apiFetch(`/quizzes/${id}`, {method: 'DELETE'})
                     .then((data) => {
                         window.location.reload();
@@ -130,6 +130,16 @@
                     .catch((error) => {
                         alert(error.data);
                     });
+            }
+        }
+
+        const copyContent = async (uniqueValue) =>{
+            try {
+                uniqueValue = '<?php echo $_ENV['APP_URL']?>' + '/takeQuiz/' + uniqueValue;
+                await navigator.clipboard.writeText(uniqueValue);
+                alert("Contend copied to clipboard");
+            } catch (err){
+                console.error("Failed to copy: ", err);
             }
         }
     </script>

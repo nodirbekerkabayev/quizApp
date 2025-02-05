@@ -7,6 +7,12 @@ use JetBrains\PhpStorm\NoReturn;
     require 'resources/views/' . $page . '.php';
     exit();
 }
+
+function assets(string $fileName): string
+{
+    return $_ENV['APP_URL'] . '/public' . $fileName;
+
+}
 function components(string $page, array $data = []): void
 {
     extract($data);

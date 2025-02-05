@@ -2,7 +2,7 @@
 components('/dashboard/header');
 //dd($uniqueValue);
 ?>
-    <script src="/js/dashboard/getUserInfo.js"></script>
+    <script src="<?php echo assets('/js/dashboard/getUserInfo.js')?>"></script>
     <div class="flex flex-col min-h-screen bg-gray-100">
         <!-- Navigation -->
         <nav class="bg-white shadow-lg">
@@ -163,7 +163,7 @@ components('/dashboard/header');
                 result;
 
             async function getQuizItems() {
-                const {default: apiFetch} = await import('/js/utils/apiFetch.js');
+                const {default: apiFetch} = await import('/<?php echo assets('/js/utils/apiFetch.js')?>');
                 try {
                     const data = await apiFetch(`/quizzes/<?php echo $uniqueValue; ?>/getByUniqueValue`, {
                         method: 'GET'
@@ -231,7 +231,7 @@ components('/dashboard/header');
                     // send request to an API
                     async function startQuiz() {
                         console.log(quizData)
-                        const {default: apiFetch} = await import('/js/utils/apiFetch.js');
+                        const {default: apiFetch} = await import('<?php echo assets('/js/utils/apiFetch.js')?>');
                         await apiFetch('/results', {method: 'POST', body: JSON.stringify({quiz_id: quizData.id})})
                             .then((data) => {
                                 console.log(data)
@@ -299,7 +299,7 @@ components('/dashboard/header');
                         questionContainer = document.getElementById('questionContainer');
 
                     async function submitAnswer() {
-                        const {default: apiFetch} = await import("/js/utils/apiFetch.js");
+                        const {default: apiFetch} = await import("<?php echo assets('/js/utils/apiFetch.js')?>");
                         await apiFetch("/answers", {
                             method: "POST",
                             body: JSON.stringify({
