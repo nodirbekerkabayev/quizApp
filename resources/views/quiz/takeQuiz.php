@@ -163,7 +163,7 @@ components('/dashboard/header');
                 result;
 
             async function getQuizItems() {
-                const {default: apiFetch} = await import('/<?php echo assets('/js/utils/apiFetch.js')?>');
+                const {default: apiFetch} = await import('<?php echo assets('/js/utils/apiFetch.js')?>');
                 try {
                     const data = await apiFetch(`/quizzes/<?php echo $uniqueValue; ?>/getByUniqueValue`, {
                         method: 'GET'
